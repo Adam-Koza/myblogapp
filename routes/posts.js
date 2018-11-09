@@ -20,9 +20,9 @@ router.get('/:slug', postsController.show);
 router.post('/', postsController.create);
 // TODO: Add Edit and Delete Requests
 
-router.post('/delete', postsController.delete);
+router.post('/delete/:slug', postsController.delete);
 
-router.post('/edit', postsController.edit);
+router.post('/edit/:slug', postsController.edit);
 
 
 
