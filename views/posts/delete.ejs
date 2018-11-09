@@ -10,3 +10,8 @@
 <!-- Adds the title to the layout  - see EJS Layouts -->
 <%- contentFor('title') %>
 <%= post['title'] %>
+
+<form action="/blog" method="post">
+<h2> Confirm Delete?</h2>
+<input type="submit" value="Yes"/><br><br><hr>
+</form>
