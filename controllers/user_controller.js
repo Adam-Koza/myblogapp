@@ -1,22 +1,22 @@
-const Post = require('../models/post');
+const Users = require('../models/users');
 //var title = "My Blog App";
 
 // Displays a list of all blog posts
 exports.index = function (req, res, next) {
-    Post.find().exec((err, posts) => {
-        console.log(posts)
-        res.locals.posts = posts
-        res.locals.title = "Blog Posts"
-        res.render('posts/index')
+    Users.find().exec((err, users) => {
+        console.log(users)
+        res.locals.users = users
+        res.locals.title = "Blog Users"
+        res.render('users/index')
     });
 };
 
 // /blog/:slug
 // req.params.slug
 exports.show = function (req, res, next) {
-    Post.find().exec((err, posts) => {
-        let post = posts.filter(x => x['slug'] === req.params['slug'])[0];
-        res.render('posts/show', { title: posts['title'], post })
+    Post.find().exec((err, users) => {
+        let users = users.filter(x => x['slug'] === req.params['slug'])[0];
+        res.render('posts/show', { title: users['title'], user })
     });
 };
 
@@ -28,9 +28,9 @@ exports.new = function(req, res, next) {
     //     content: ""
     // }
     res.locals.title = "New Blog Post"
-    res.locals.post = {title: "", content: "", summary: ""}
+    res.locals.user = {title: "", content: "", summary: ""}
     res.locals.message  = ""
-	res.render('posts/new');
+	res.render('users/new');
 };
 
 // exports.new = function (req, res, next) {
@@ -55,7 +55,7 @@ exports.create = function (req, res, next) {
     }
     let formPost = req.body
     if (formPost.summary === undefined) {
-        const postSummary = truncate(req.body.content, 20) + "...";
+        const usersummary = truncate(req.body.content, 20) + "...";
         formPost = Object.assign(formPost, {summary: postSummary});
     }
     const newPost = new Post(formPost);
@@ -65,17 +65,18 @@ exports.create = function (req, res, next) {
     }).catch(next)
 };
 
+exports.login = function(req, res, next){
+    users.find().exec((err, users) => {
+        let users = users.filter(x => x['slug'] === req.params['slug'])[0];
+        res.render('users/login', { login: users['login'], users })
 
-exports.edit = function (req, res, next) {
-    Post.find().exec((err, posts) => {
-        let post = posts.filter(x => x['slug'] === req.params['slug'])[0];
-        res.render('posts/edit', { title: posts['title'], post })
     });
 };
 
-exports.delete = function (req, res, next) {
-    Post.find().exec((err, posts) => {
-        let post = posts.filter(x => x['slug'] === req.params['slug'])[0];
-        res.render('posts/delete', { title: posts['title'], post })
+exports.register = function(req, res, next){
+    Post.find().exec((err, users) => {
+        let users = users.filter(x => x['slug'] === req.params['slug'])[0];
+        res.render('users/register', { register: users['register'], users })
+
     });
 };

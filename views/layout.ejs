@@ -3,10 +3,40 @@
   <head>
 	  <title>
 <%- defineContent('title')%>
-	  </title>
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 	<link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
-  <body>
+
+<body>
+
+<div class="Title my Blog app">
+  <h1>TItle Screen App</h1>
+  <p>Register to Login</p> 
+</div>
+  
+<div class="container">
     <%- body %>
+    <button type="button" class="btn btn-dark">Login</button>
+    <a class="btn btn-primary" href="#" role="button">Register Link</a>
+    <input class="btn btn-primary" type="submit" value="Submit">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Column 1</h3>
+      <p>Index first page</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 2</h3>
+      <p>Second Page</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 3</h3>        
+      <p>Third Page</p>
+    </div>
+  </div>
+</div>
+
   </body>
 </html>

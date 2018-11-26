@@ -8,10 +8,10 @@ router.get('/new', postsController.new);
 // GET all posts listings.
 // GET /blog/
 router.get('/', postsController.index);
-
+router.get('/login', postsController.index);
+router.get('/register', postsController.index);
 // Get an Individual post listing
-router.post('/update', postsController.delete);
-router.post('/delete', postsController.delete);
+
 // GET /blog/:slug
 router.get('/:slug', postsController.show);
 
@@ -19,13 +19,8 @@ router.get('/:slug', postsController.show);
 // POST /blog
 
 router.post('/', postsController.create);
+router.post('/logout', postsController.create);
 // TODO: Add Edit and Delete Requests
-
-router.post('/delete/:slug', postsController.delete);
-
-router.post('/edit/:slug', postsController.edit);
-
-
 
 
 // Export routes
